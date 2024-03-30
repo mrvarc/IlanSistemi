@@ -1,0 +1,121 @@
+﻿@model List<HomePageVM>
+
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<div class="container px-2 px-lg-2 my-5">
+	<h4 class="text-center fw-bolder" style="font-family: 'Quicksand', sans-serif; font-weight: 700;">Son İlanlar</h4>
+	<hr style="border: 2px solid darkred;">
+</div>
+
+<section class="py-9">
+	<div class="container px-4 px-lg-5 mt-5">
+		<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center">
+
+			@foreach (var item in Model)
+			{
+				<div class="col mb-5">
+					<div class="card h-100">
+						<!-- Ürün resmi -->
+						<img class="card-img-top" src="@item.ImageUrl" alt="..." width="200" height="200" />
+						<div class="card-body p-4">
+							<div class="text-center">
+								<!-- Kategori adı -->
+								<h5 class="fw-bolder">@item.CategoryName</h5>
+								<!-- Açıklama -->
+								<p>@item.Description</p>
+								<!-- Fiyat -->
+								@item.Price.ToString("N2") @item.Currency
+							</div>
+						</div>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+							<div class="text-center">
+								<!-- Görüntüle butonu, her item için benzersiz bir id ile -->
+								<a asp-action="Details" asp-controller="Editor" asp-route-id=@item.Id class="btn btn-outline-dark">Görüntüle</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</section>
+
+
+<footer>
+	<div class="category-footer">
+		<ul class="category-list">
+			@* Her kategori için bir <li> öğesi oluşturun. Resimlerinizi ve linklerinizi uygun şekilde düzenleyin. *@
+			<li>
+				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Otomobil" })">
+					<img src="https://freerangestock.com/sample/119153/car-vector-icon.jpg" alt="Otomobil" />
+					<span>Otomobil</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Kitap" })">
+					<img src="https://st3.depositphotos.com/5903534/18615/v/450/depositphotos_186155840-stock-illustration-book-icon-white-background.jpg" alt="Kitap" />
+					<span>Kitap</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Telefon" })">
+					<img src="https://static.vecteezy.com/system/resources/thumbnails/003/720/476/small/phone-icon-telephone-icon-symbol-for-app-and-messenger-vector.jpg" alt="Telefon" />
+					<span>Telefon</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Bilgisayar" })">
+					<img src="https://static.vecteezy.com/system/resources/previews/021/190/058/non_2x/laptop-outline-icon-in-transparent-background-basic-app-and-web-ui-bold-line-icon-eps10-free-vector.jpg" alt="Bilgisayar" />
+					<span>Bilgisayar</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+
+	<style>
+		.category-footer {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+		}
+
+		.category-list {
+			list-style: none;
+			display: flex;
+			padding: 0;
+		}
+
+		.category-list li {
+			margin: 0 35px; /* Kategoriler arası mesafeyi artırın */
+			text-align: center;
+		}
+
+		.category-list img {
+			width: 80px; /* Resim boyutunu ayarlayın */
+			height: 80px; /* Resim boyutunu ayarlayın */
+			border: 2px solid black; /* Siyah çerçeve ekleyin */
+			border-radius: 10px; /* Kenarları oval yapın */
+		}
+
+		.category-list span {
+			display: block;
+			margin-top: 5px;
+		}
+
+		.category-list a {
+			color: black; /* Link rengini siyah yapın */
+			text-decoration: none; /* Alt çizgiyi kaldırın */
+		}
+
+		.category-list a:hover {
+			color: darkgray; /* Üzerine gelindiğinde rengini koyu gri yapın */
+		}
+	</style>
+</footer>

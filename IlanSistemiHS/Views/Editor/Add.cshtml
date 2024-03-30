@@ -1,0 +1,63 @@
+﻿@model Editor
+@{
+    var kategoriler = (List<SelectListItem>)ViewData["categories"];
+}
+
+<div class="d-flex justify-content-center content-wrapper">
+    <div class="card col-8">
+        <form method="post">
+            <div class="card-header text-center bg-dark bg-gradient text-white">Yeni İlan Ekleme Ekranı</div>
+            
+            <div class="card-body">
+                <div class="mb-3 row">
+                    <input asp-for="Name" class="form-control" placeholder="Başlık giriniz" />
+                </div>
+
+                <div class="mb-3 row">
+                    <textarea asp-for="Description" class="form-control" placeholder="Detay giriniz"></textarea>
+                </div>
+
+                <div class="mb-3 row">
+                    <input asp-for="Price" class="form-control" placeholder="Fiyat giriniz" />
+                </div>
+
+                <div class="mb-3 row">
+                    <input asp-for="Currency" class="form-control" placeholder="Para birimi giriniz" />
+                </div>
+
+                <div class="mb-3 row">
+                    <input asp-for="ImageUrl" class="form-control" placeholder="Görsel URL giriniz" />
+                </div>
+
+                <div class="mb-3 row">
+                    <select asp-items="kategoriler" asp-for="CategoryId" class="form-control" >
+                </select>
+                </div>
+
+                <div class="mb-3 row">
+                    <input asp-for="PublishDate" class="form-control" placeholder="Lütfen tarih seçiniz" />
+                </div>
+            </div>
+
+            <div class="card-footer text-center">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a asp-controller="Editor" asp-action="Index" class="btn btn-danger">İptal</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<style>
+    .content-wrapper {
+        padding: 2rem; /* İçeriğin etrafında boşluk oluşturur */
+    }
+
+    .card {
+        width: 90%; /* Genişliği ayarlar */
+        max-width: 720px; /* Maksimum genişlik sınırı */
+        height: auto; /* Yüksekliği içerik boyutuna göre ayarlar */
+        margin-top: 2rem; /* Üstte boşluk oluşturur */
+        margin-bottom: 6rem; /* Alttan boşluk oluşturur */
+    }
+</style>

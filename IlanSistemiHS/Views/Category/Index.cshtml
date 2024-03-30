@@ -1,0 +1,72 @@
+﻿@model List<Category>
+
+<div class="container px-2 px-lg-2 my-5">
+	<h4 class="text-center fw-bolder" style="font-family: 'Quicksand', sans-serif; font-weight: 700;">Kategori Listesi</h4>
+	<div class="position-relative">
+		<hr style="border: 2px solid darkred;">
+		<a class="btn btn-warning position-absolute end-0" style="top: -55px; font-size: 15px; padding: 8px 13px;" asp-controller="Category" asp-action="Add">Yeni Kategori</a>
+	</div>
+</div>
+
+<div class="card-body my-4">
+	<table class="table table-hover table-striped">
+		<thead class="text-center">
+			<tr>
+				<th>Kategori Adı</th>
+				<th>Küçük Resim</th>
+				<th>İşlemler</th>
+			</tr>
+		</thead>
+
+		<tbody class="text-center">
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Name</td>
+					<td><img class="card-img-top" src="@item.Smallimg" alt="Küçük Resim" /></td>
+					<td>
+						<a asp-controller="Category" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Güncelle</a>
+						<a onclick="return confirm('Silmek istediğinizden emin misiniz ?')" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Sil</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+
+
+<style>
+	.mb-10x {
+		margin-bottom: 200px; /* 10 katı boşluk bırakacak şekilde ayarladım, istediğiniz boyuta göre değiştirebilirsiniz */
+	}
+
+	.table {
+		width: 1300px; /* Sabit genişlik */
+		height: 100px; /* Sabit yükseklik */
+		overflow: auto; /* İçerik fazla ise kaydırma çubuğu ekle */
+		margin: auto; /* Ortalama */
+		margin-bottom: 200px;
+	}
+
+	.table thead {
+			background: linear-gradient(to right, #222, #444); /* Daha koyu gri geçişli arka plan */
+			color: white; /* Beyaz metin rengi */
+			height: 60px; /* Tablo başlığının yüksekliği */
+			vertical-align: middle; /* Metni dikey olarak ortala */
+	}
+
+	.card-img-top {
+		width: 100px; /* Sabit genişlik */
+		height: 100px; /* Sabit yükseklik */
+		object-fit: cover; /* Resmi kutuya sığacak şekilde kırp veya doldur */
+		display: block; /* Resmi blok seviyesinde göster */
+		margin: auto; /* Resmi yatay olarak ortala */
+	}
+
+	.table td, .table th {
+		text-align: center; /* Yazıları yatay olarak ortala */
+		vertical-align: middle; /* Yazıları dikey olarak ortala */
+		padding: 5px; /* Hücre içi boşluğu azalt */
+	}
+</style>

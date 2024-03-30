@@ -1,0 +1,72 @@
+﻿@model DetailsVM
+
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+</head>
+
+
+<section class="py-9">
+	<div class="container px-4 px-lg-5 mt-5">
+		<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 justify-content-center">
+
+				<div class="col mb-5">
+					<div class="card h-100">
+						<!-- Ürün resmi -->
+						<img class="card-img-top" src=@Model.ImageUrl alt="..." width="200" height="200" />
+						<div class="card-body p-4">
+							<div class="text-center">
+								<!-- Kategori adı -->
+							<h5 class="fw-bolder">@Model.CategoryName</h5>
+								<!-- Açıklama -->
+								<p>Model.Description</p>
+								<!-- Fiyat -->
+							@Model.Price.ToString("N2") @Model.Currency
+							</div>
+						</div>
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+</section>
+
+
+
+	<style>
+		
+
+		.category-list {
+			list-style: none;
+			display: flex;
+			padding: 0;
+		}
+
+		.category-list li {
+			margin: 0 35px; /* Kategoriler arası mesafeyi artırın */
+			text-align: center;
+		}
+
+		.category-list img {
+			width: 80px; /* Resim boyutunu ayarlayın */
+			height: 80px; /* Resim boyutunu ayarlayın */
+			border: 2px solid black; /* Siyah çerçeve ekleyin */
+			border-radius: 10px; /* Kenarları oval yapın */
+		}
+
+		.category-list span {
+			display: block;
+			margin-top: 5px;
+		}
+
+		.category-list a {
+			color: black; /* Link rengini siyah yapın */
+			text-decoration: none; /* Alt çizgiyi kaldırın */
+		}
+
+		.category-list a:hover {
+			color: darkgray; /* Üzerine gelindiğinde rengini koyu gri yapın */
+		}
+	</style>

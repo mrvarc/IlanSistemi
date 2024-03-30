@@ -1,0 +1,37 @@
+﻿@model Category
+
+<div class="d-flex justify-content-center content-wrapper">
+	<div class="card col-8">
+		<form method="post">
+			<div class="card-header text-center bg-dark bg-gradient text-white">Kategori Güncelleme Ekranı</div>
+			<div class="card-body">
+				
+				<div class="mb-3 row">
+					<label class="form-label" asp-for="Name">Kategori</label>
+					<input asp-for="Name" class="form-control" placeholder="Lütfen kategori adını düzenleyiniz" />
+				</div>
+
+				<div class="mb-3 row">
+					<label class="form-label" asp-for="Smallimg">Küçük Resim</label>
+					<input asp-for="Smallimg" class="form-control" placeholder="Lütfen kategori görseli ekleyiniz" />
+				</div>
+			</div>
+			
+			<div class="card-footer text-center">
+				<button type="submit" class="btn btn-primary">Kaydet</button>
+				<a asp-controller="Category" asp-action="Index" class="btn btn-danger">Iptal</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+<style>
+	.content-wrapper {
+		padding: 2rem; /* İçeriğin etrafında boşluk oluşturur */
+	}
+
+	.card {
+		margin-top: 2rem; /* Üstte boşluk oluşturur */
+		margin-bottom: 2rem; /* Alttan boşluk oluşturur */
+	}
+</style>

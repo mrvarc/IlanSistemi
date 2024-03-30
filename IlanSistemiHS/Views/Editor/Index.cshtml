@@ -1,0 +1,76 @@
+﻿@model List<EditorVM>
+
+	<div class="container px-2 px-lg-2 my-5">
+		<h4 class="text-center fw-bolder" style="font-family: 'Quicksand', sans-serif; font-weight: 700;">İlan Listesi</h4>
+		<div class="position-relative">
+			<hr style="border: 2px solid darkred;">
+			<a class="btn btn-warning position-absolute end-0" style="top: -55px; font-size: 15px; padding: 8px 13px;" asp-controller="Editor" asp-action="Add">Yeni Kayıt</a>
+		</div>
+	</div>
+
+	<div class="card-body">
+		<table class="table table-hover table-striped">
+			<thead class="text-center">
+				<tr>
+					<th>Başlık</th>
+					<th>Detay</th>
+					<th>Fiyat</th>
+					<th>Para Birimi</th>
+					<th>Görsel URL</th>
+					<th>Kategori</th>
+					<th>Ekleme Tarihi</th>
+					<th>İşlemler</th>
+				</tr>
+			</thead>
+
+			<tbody class="text-center">
+				@foreach (var item in Model)
+				{
+				<tr>
+					<td>@item.Name</td>
+					<td>@item.Description</td>
+					<td>@String.Format("{0:N2}", item.Price)</td>
+					<td>@item.Currency</td>
+					<td>
+						<img class="card-img-top" src=@item.ImageUrl alt="..." width="50" height="50" />
+					</td>
+					<td>@item.CategoryName</td>
+					<td>@item.PublishDate</td>
+					<td><a asp-controller="Editor" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Güncelle</a> <a onclick="return confirm('Silmek istediğinizden emin misiniz ?')" asp-controller="Editor" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Sil</a> </td>
+				</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+<div class="mb-5"></div>
+<div class="card-footer text-center">
+	Toplam Kayıt Sayısı : @Model.Count<br />
+</div>
+
+<div class="mb-10x"></div>
+
+<style>
+	.mb-10x {
+		margin-bottom: 200px; /* 10 katı boşluk bırakacak şekilde ayarladım, istediğiniz boyuta göre değiştirebilirsiniz */
+	}
+
+	.table {
+		width: 1300px; /* Sabit genişlik */
+		height: 400px; /* Sabit yükseklik */
+		overflow: auto; /* İçerik fazla ise kaydırma çubuğu ekle */
+		margin: auto; /* Ortalama */
+	}
+
+	.table thead {
+		background: linear-gradient(to right, #222, #444); /* Daha koyu gri geçişli arka plan */
+		color: white; /* Beyaz metin rengi */
+		height: 60px; /* Tablo başlığının yüksekliği */
+		vertical-align: middle; /* Metni dikey olarak ortala */
+	}
+
+	.table td, .table th {
+		text-align: center; /* Yazıları yatay olarak ortala */
+		vertical-align: middle; /* Yazıları dikey olarak ortala */
+	}
+</style>
