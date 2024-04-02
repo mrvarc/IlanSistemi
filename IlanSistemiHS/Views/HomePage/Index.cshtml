@@ -17,21 +17,16 @@
 			{
 				<div class="col mb-5">
 					<div class="card h-100">
-						<!-- Ürün resmi -->
 						<img class="card-img-top" src="@item.ImageUrl" alt="..." width="200" height="200" />
 						<div class="card-body p-4">
 							<div class="text-center">
-								<!-- Kategori adı -->
 								<h5 class="fw-bolder">@item.CategoryName</h5>
-								<!-- Açıklama -->
 								<p>@item.Description</p>
-								<!-- Fiyat -->
 								@item.Price.ToString("N2") @item.Currency
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<!-- Görüntüle butonu, her item için benzersiz bir id ile -->
 								<a asp-action="Details" asp-controller="Editor" asp-route-id=@item.Id class="btn btn-outline-dark">Görüntüle</a>
 							</div>
 						</div>
@@ -46,32 +41,28 @@
 <footer>
 	<div class="category-footer">
 		<ul class="category-list">
-			@* Her kategori için bir <li> öğesi oluşturun. Resimlerinizi ve linklerinizi uygun şekilde düzenleyin. *@
 			<li>
 				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Otomobil" })">
 					<img src="https://freerangestock.com/sample/119153/car-vector-icon.jpg" alt="Otomobil" />
 					<span>Otomobil</span>
 				</a>
 			</li>
-
-			<li>
-				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Kitap" })">
-					<img src="https://st3.depositphotos.com/5903534/18615/v/450/depositphotos_186155840-stock-illustration-book-icon-white-background.jpg" alt="Kitap" />
-					<span>Kitap</span>
-				</a>
-			</li>
-
 			<li>
 				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Telefon" })">
 					<img src="https://static.vecteezy.com/system/resources/thumbnails/003/720/476/small/phone-icon-telephone-icon-symbol-for-app-and-messenger-vector.jpg" alt="Telefon" />
 					<span>Telefon</span>
 				</a>
 			</li>
-
 			<li>
 				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Bilgisayar" })">
 					<img src="https://static.vecteezy.com/system/resources/previews/021/190/058/non_2x/laptop-outline-icon-in-transparent-background-basic-app-and-web-ui-bold-line-icon-eps10-free-vector.jpg" alt="Bilgisayar" />
 					<span>Bilgisayar</span>
+				</a>
+			</li>
+			<li>
+				<a href="@Url.Action("KategoriFiltre", "Editor", new { category = "Kitap" })">
+					<img src="https://st3.depositphotos.com/5903534/18615/v/450/depositphotos_186155840-stock-illustration-book-icon-white-background.jpg" alt="Kitap" />
+					<span>Kitap</span>
 				</a>
 			</li>
 		</ul>
@@ -93,15 +84,15 @@
 		}
 
 		.category-list li {
-			margin: 0 35px; /* Kategoriler arası mesafeyi artırın */
+			margin: 0 35px;
 			text-align: center;
 		}
 
 		.category-list img {
-			width: 80px; /* Resim boyutunu ayarlayın */
-			height: 80px; /* Resim boyutunu ayarlayın */
-			border: 2px solid black; /* Siyah çerçeve ekleyin */
-			border-radius: 10px; /* Kenarları oval yapın */
+			width: 80px;
+			height: 80px;
+			border: 2px solid black;
+			border-radius: 10px;
 		}
 
 		.category-list span {
@@ -110,12 +101,12 @@
 		}
 
 		.category-list a {
-			color: black; /* Link rengini siyah yapın */
-			text-decoration: none; /* Alt çizgiyi kaldırın */
+			color: black;
+			text-decoration: none;
 		}
 
 		.category-list a:hover {
-			color: darkgray; /* Üzerine gelindiğinde rengini koyu gri yapın */
+			color: darkgray;
 		}
 	</style>
 </footer>

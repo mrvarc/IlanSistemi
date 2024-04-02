@@ -31,15 +31,5 @@ namespace IlanSistemiHS.Controllers
 			conn.Close();
 			return View(list);
 		}
-
-
-
-
-
-
-
-
-
-
 	}
 }

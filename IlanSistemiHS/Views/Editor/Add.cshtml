@@ -1,4 +1,5 @@
 ﻿@model Editor
+
 @{
     var kategoriler = (List<SelectListItem>)ViewData["categories"];
 }
@@ -47,17 +48,16 @@
     </div>
 </div>
 
-
 <style>
     .content-wrapper {
-        padding: 2rem; /* İçeriğin etrafında boşluk oluşturur */
+        padding: 2rem;
     }
 
     .card {
-        width: 90%; /* Genişliği ayarlar */
-        max-width: 720px; /* Maksimum genişlik sınırı */
-        height: auto; /* Yüksekliği içerik boyutuna göre ayarlar */
-        margin-top: 2rem; /* Üstte boşluk oluşturur */
-        margin-bottom: 6rem; /* Alttan boşluk oluşturur */
+        width: 90%;
+        max-width: 720px;
+        height: auto;
+        margin-top: 2rem;
+        margin-bottom: 6rem;
     }
 </style>

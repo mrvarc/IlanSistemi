@@ -14,5 +14,4 @@ namespace IlanSistemiHS.ViewModels
 		public string Currency { get; set; }
 
 	}
-
 }
